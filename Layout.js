@@ -30,7 +30,7 @@ export default function App({ navigation }) {
 
 
     if (success) {
-      Alert.alert("Device authenticated");
+      //Alert.alert("Device authenticated");
       navigation.navigate('Two');
 
 
