@@ -21,12 +21,12 @@ export default function HomeBank() {
         <Text style={styles.boxExpenses}>Expenses</Text>
       </View>
 
-      <Image source={require("./bar.png")} style={styles.containerPicture} />
+      <Image source={require("./assets/bar.png")} style={styles.containerPicture} />
 
       <View style={styles.lastBox}>
         <Text style={styles.threeBoxes}>
           <Image
-            source={require("./health.png")}
+            source={require("./assets/health.png")}
             style={styles.containerPicture}
           />
           Health
@@ -34,7 +34,7 @@ export default function HomeBank() {
 
         <Text style={styles.threeBoxes}>
           <Image
-            source={require("./beauty.png")}
+            source={require("./assets/beauty.png")}
             style={styles.containerPicture}
           />
           Beauty
@@ -42,7 +42,7 @@ export default function HomeBank() {
 
         <Text style={styles.threeBoxes}>
           <Image
-            source={require("./travel.png")}
+            source={require("./assets/travel.png")}
             style={styles.containerPicture}
           />
           Travel
