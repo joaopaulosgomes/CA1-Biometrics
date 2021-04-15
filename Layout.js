@@ -6,6 +6,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
+  TextInput,
+  Image,
   Alert,
   Platform
 } from "react-native";
@@ -57,17 +59,32 @@ export default function App({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Image
+        source={require("./assets/Logo.png")}
+        style={styles.logo}
+      />
       <Text style={styles.loginText}
         >Wellcome to YourBank
       </Text>
       <Text style={styles.loginText}
-        >Press the button to log in</Text>
+        >Press the button to log in
+      </Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#444"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Senha"
+        placeholderTextColor="#444"
+      />
       <TouchableOpacity style={styles.button}
-      onPress={() => {
+        onPress={() => {
         authenticate();
-    }}
+        }}
       >
-        <Text>Enter</Text>
+        <Text>Log in</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -79,6 +96,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  input: {
+    width: 200,
+    height: 45,
+    borderWidth: 2,
+    borderColor: "#7159c1",
+    borderRadius: 5,
+    marginBottom: 10,
+    padding: 10
   },
   button: {
     width: 200,
@@ -106,6 +132,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: "40%"
+  },
+  logo: {
+    width: 120,
+    height: 120,
   },
   cancelText: {
     color: "red",

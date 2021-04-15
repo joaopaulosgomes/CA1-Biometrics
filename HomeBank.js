@@ -108,11 +108,9 @@ const styles = StyleSheet.create({
   },
   containerPicture: {
     flex: 1,
-
     width: "100%",
     resizeMode: "contain",
     flexGrow: 1,
-
     alignItems: "center",
     justifyContent: "center",
     paddingBottom: 30,
