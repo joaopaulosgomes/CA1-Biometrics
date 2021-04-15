@@ -52,21 +52,22 @@ export default function HomeBank() {
   );
 }
 
+//StyleSheet - to create style objects with an ID to reuse it
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    marginHorizontal: 16,
+    backgroundColor: "#fff", //big background color
+    marginHorizontal: 16, //side margin horizontal
   },
   boxIncome: {
-    backgroundColor: "#ffffff",
-    width: "47%", 
-    alignItems: "center",
-    justifyContent: "space-around",
-    borderRadius: 6,
-    padding: 10,
-    marginLeft: 5,
-    textAlign: "center",
+    backgroundColor: "#ffffff", //box background
+    width: "47%", //how much will occupy the horizontal screen 
+    alignItems: "center", //alignment of items 
+    justifyContent: "space-around", //how to align children
+    borderRadius: 6, //rounded edges 
+    padding: 10, //set space around text component's content inside a border
+    marginLeft: 5, //left margin
+    textAlign: "center", //aligment text
   },
   boxExpenses: {
     backgroundColor: "#ffffff",
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e6e6fa", 
     width: "98%", 
     borderRadius: 10, 
-    flexDirection: "row", 
+    flexDirection: "row",  //set boxes in rows, not columns 
     padding: 3,
   },
   lastBox: {
