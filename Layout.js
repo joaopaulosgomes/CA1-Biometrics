@@ -11,13 +11,24 @@ import {
 } from "react-native";
 import * as LocalAuthentication from "expo-local-authentication";
 
-//funtions to be added: assync function, cancel modal or alert, all styles
-//to be modified, all interface
-//files to be added: TransactionScreen.js
 
 export default function App({ navigation }) {
 
   const [isModalVisible, setIsModalVisible] = useState(true);
+
+    checkDeviceForHardware = async () => {
+
+    let compatible = await Expo.Fingerprint.hasHardwareAsync();
+
+    this.setState({ compatible });
+
+    if (!compatible) {
+
+      Alert.alert(
+        "Erro! Current device does not have the necessary hardware to use this API."
+      );
+    }
+  };
 
   async function authenticate() {
 
@@ -30,7 +41,6 @@ export default function App({ navigation }) {
 
 
     if (success) {
-      //Alert.alert("Device authenticated");
       navigation.navigate('Two');
 
 
@@ -59,9 +69,6 @@ export default function App({ navigation }) {
       >
         <Text>Enter</Text>
       </TouchableOpacity>
-
-      
-      
     </SafeAreaView>
   );
 }
