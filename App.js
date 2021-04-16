@@ -12,11 +12,16 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'One',
     defaultNavigationOptions: {
-      title: 'App',
-    },
+      title: '',
+      headerStyle: {
+        backgroundColor: '#19181f'
+      },
+      //header: null
+      headerTintColor: "#7159c1",
+    }
   }
 );
 
-//testing
+
 
 export default createAppContainer(navigator);
