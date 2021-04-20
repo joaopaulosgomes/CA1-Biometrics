@@ -6,18 +6,31 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
+  TextInput,
+  Image,
   Alert,
   Platform
 } from "react-native";
 import * as LocalAuthentication from "expo-local-authentication";
 
-//funtions to be added: assync function, cancel modal or alert, all styles
-//to be modified, all interface
-//files to be added: TransactionScreen.js
 
 export default function App({ navigation }) {
 
   const [isModalVisible, setIsModalVisible] = useState(true);
+
+  //   checkDeviceForHardware = async () => {
+
+  //   let compatible = await Expo.Fingerprint.hasHardwareAsync();
+
+  //   this.setState({ compatible });
+
+  //   if (!compatible) {
+
+  //     Alert.alert(
+  //       "Erro! Current device does not have the necessary hardware to use this API."
+  //     );
+  //   }
+  // };
 
   async function authenticate() {
 
@@ -30,7 +43,6 @@ export default function App({ navigation }) {
 
 
     if (success) {
-      Alert.alert("Device authenticated");
       navigation.navigate('Two');
 
 
@@ -47,21 +59,33 @@ export default function App({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Image
+        source={require("./assets/Logo.png")}
+        style={styles.logo}
+      />
       <Text style={styles.loginText}
         >Wellcome to YourBank
       </Text>
       <Text style={styles.loginText}
-        >Press the button to log in</Text>
+        >Press the button to log in
+      </Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#444"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Senha"
+        placeholderTextColor="#444"
+      />
       <TouchableOpacity style={styles.button}
-      onPress={() => {
+        onPress={() => {
         authenticate();
-    }}
+        }}
       >
-        <Text>Enter</Text>
+        <Text>Log in</Text>
       </TouchableOpacity>
-
-      
-      
     </SafeAreaView>
   );
 }
@@ -72,6 +96,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  input: {
+    width: 200,
+    height: 45,
+    borderWidth: 2,
+    borderColor: "#7159c1",
+    borderRadius: 5,
+    marginBottom: 10,
+    padding: 10
   },
   button: {
     width: 200,
@@ -99,6 +132,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: "40%"
+  },
+  logo: {
+    width: 120,
+    height: 120,
   },
   cancelText: {
     color: "red",

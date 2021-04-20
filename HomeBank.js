@@ -21,30 +21,30 @@ export default function HomeBank() {
         <Text style={styles.boxExpenses}>Expenses</Text>
       </View>
 
-      <Image source={require("./assets/bar.png")} style={styles.containerPicture} />
+      {/* <Image source={require("./assets/bar.png")} style={styles.containerPicture} /> */}
 
       <View style={styles.lastBox}>
         <Text style={styles.threeBoxes}>
-          <Image
+          {/* <Image
             source={require("./assets/health.png")}
             style={styles.containerPicture}
-          />
+          /> */}
           Health
         </Text>
 
         <Text style={styles.threeBoxes}>
-          <Image
+          {/* <Image
             source={require("./assets/beauty.png")}
             style={styles.containerPicture}
-          />
+          /> */}
           Beauty
         </Text>
 
         <Text style={styles.threeBoxes}>
-          <Image
+          {/* <Image
             source={require("./assets/travel.png")}
             style={styles.containerPicture}
-          />
+          /> */}
           Travel
         </Text>
       </View>
@@ -108,11 +108,9 @@ const styles = StyleSheet.create({
   },
   containerPicture: {
     flex: 1,
-
     width: "100%",
     resizeMode: "contain",
     flexGrow: 1,
-
     alignItems: "center",
     justifyContent: "center",
     paddingBottom: 30,

@@ -2,17 +2,21 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Layout from './Layout';
-import ScreenTransition from './ScreenTransition';
+import HomeBank from './HomeBank';
 
 const navigator = createStackNavigator(
   {
     One: Layout,
-    Two: ScreenTransition,
+    Two: HomeBank,
   },
   {
     initialRouteName: 'One',
     defaultNavigationOptions: {
-      title: 'App',
+      title: '',
+      headerStyle: {
+        backgroundColor: "#19181f"
+      },
+      headerTintColor: "#7159c1",
     },
   }
 );
