@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   boxIncome: {
     backgroundColor: "#ffffff", //box background
-    width: "200", //how much will occupy the horizontal screen 
+    width: 200, //how much will occupy the horizontal screen 
     alignItems: "center", //alignment of items 
     justifyContent: "space-around", //how to align children
     borderRadius: 6, //rounded edges 
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   boxExpenses: {
     backgroundColor: "#ffffff",
-    width: "100", 
+    width: 100, 
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 6,
@@ -81,21 +81,21 @@ const styles = StyleSheet.create({
   },
   boxButton: {
     backgroundColor: "#e6e6fa", 
-    width: "400", 
+    width: 400, 
     borderRadius: 10, 
     flexDirection: "row",  //set boxes in rows, not columns 
     padding: 3,
   },
   lastBox: {
     backgroundColor: "#e6e6fa", 
-    width: "200", 
+    width: 200, 
     borderRadius: 20, 
     flexDirection: "row", 
     padding: 13,
   },
   threeBoxes: {
     backgroundColor: "#ffffff",
-    width: "70", 
+    width: 70, 
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 20,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
   containerPicture: {
     flex: 1,
-    width: "200",
+    width: 200,
     resizeMode: "contain",
     flexGrow: 1,
     alignItems: "center",
