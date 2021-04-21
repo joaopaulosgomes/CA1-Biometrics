@@ -4,13 +4,14 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Layout from './Layout';
 import HomeBank from './HomeBank';
 
-const navigator = createStackNavigator(
+
+const navigator = createStackNavigator( // create a new constant to initialize the stack navigator
   {
-    One: Layout,
-    Two: HomeBank,
+    One: Layout, // Set the screen One as Layout file
+    Two: HomeBank, // Set the screen Two as Homebank file
   },
   {
-    initialRouteName: 'One',
+    initialRouteName: 'One', // Set the page One (Layout) as the default screen
     defaultNavigationOptions: {
       title: '',
       headerStyle: {
@@ -21,7 +22,6 @@ const navigator = createStackNavigator(
     }
   }
 );
-
 
 
 export default createAppContainer(navigator);

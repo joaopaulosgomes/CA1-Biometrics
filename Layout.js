@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {
   SafeAreaView,
-  View,
-  Modal,
   StyleSheet,
   TouchableOpacity,
   Text,
@@ -16,9 +14,13 @@ import * as LocalAuthentication from "expo-local-authentication";
 
 export default function App({ navigation }) {
 
+  useEffect(()=>{
+    checkDeviceForHardware();
+ },[])
+
   const [isModalVisible, setIsModalVisible] = useState(true);
 
-    checkDeviceForHardware = async () => {
+    const checkDeviceForHardware = async () => {
 
     let compatible = await Expo.Fingerprint.hasHardwareAsync();
 
@@ -27,7 +29,7 @@ export default function App({ navigation }) {
     if (!compatible) {
 
       Alert.alert(
-        "Erro! Current device does not have the necessary hardware to use this API."
+        "Error! Current device does not have the necessary hardware to use this API."
       );
     }
   };
@@ -42,11 +44,11 @@ export default function App({ navigation }) {
     const { success, error } = await LocalAuthentication.authenticateAsync();
 
 
-    if (success) {
+    if (success) { // if authentication went through, redirect user to page Two (HomeBank)
       navigation.navigate('Two');
 
 
-    } else {
+    } else { //Otherwise, stay at the same page and try again
       Alert.alert("Authentication failed. Please, insert your password!");
     }
 
@@ -55,7 +57,7 @@ export default function App({ navigation }) {
   }
 
 
-  Platform.OS === "ios" && authenticate();
+  Platform.OS === "android" && authenticate();
 
   return (
     <SafeAreaView style={styles.container}>
