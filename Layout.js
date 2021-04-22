@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -13,51 +13,52 @@ import * as LocalAuthentication from "expo-local-authentication";
 
 
 export default function App({ navigation }) {
+  state = {
+    compatible: false,
+  };
 
-  useEffect(()=>{
-    checkDeviceForHardware();
- },[])
+  //This function tests if the device has hardware required for authentication
+  checkDeviceForHardware = async () => {
 
-  const [isModalVisible, setIsModalVisible] = useState(true);
-
-    const checkDeviceForHardware = async () => {
-
+    //hasHardwareAsync() chech the hardware in the device
     let compatible = await Expo.Fingerprint.hasHardwareAsync();
 
-    this.setState({ compatible });
-
+    //If this device is compatible, the variable "compatible" which starts false changes to true
+    this.setState({ compatible }); 
+    
+    //in case of the device not compatible, set this alert on
     if (!compatible) {
-
-      Alert.alert(
-        "Error! Current device does not have the necessary hardware to use this API."
-      );
+      this.showIncompatibleAlert();
     }
   };
 
+  //This function set a modal in the display
+  showIncompatibleAlert = () => {
+    Alert.alert("Error! Current device does not have the necessary hardware to use this API."
+    );
+  };
+
+  //This function autheticates the device
   async function authenticate() {
 
+    //Checks if there is a password/PIN enrolled in the OS of the device installed
     const hasPassword = await LocalAuthentication.isEnrolledAsync();
 
-
+    //in case of not having a password, return to the beginning 
     if (!hasPassword) return;
 
-    const { success, error } = await LocalAuthentication.authenticateAsync();
+    //authenticateAsync() checks if the authentication in the device has succeeded
+    const { success } = await LocalAuthentication.authenticateAsync();
 
-
-    if (success) { // if authentication went through, redirect user to page Two (HomeBank)
+    // if authentication went through, redirect user to page Two (HomeBank)
+    if (success) { 
       navigation.navigate('Two');
-
-
-    } else { //Otherwise, stay at the same page and try again
+    
+    //Otherwise, stay at the same page and try again
+    } else { 
       Alert.alert("Authentication failed. Please, insert your password!");
     }
-
-    setIsModalVisible(false);
-
   }
-
-
-  Platform.OS === "android" && authenticate();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -82,6 +83,7 @@ export default function App({ navigation }) {
         placeholderTextColor="#444"
       />
       <TouchableOpacity style={styles.button}
+        //On press, the function "authenticate()" is handled
         onPress={() => {
         authenticate();
         }}
