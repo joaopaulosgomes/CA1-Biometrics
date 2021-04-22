@@ -165,7 +165,7 @@ class IconFooter extends Component {
               <Icon name="apps" />
             </Button>
             <Button >
-              <Icon name="camera" />
+              <Icon name="cash" />
             </Button>
             <Button >
               <Icon name="compass" />
@@ -200,6 +200,9 @@ const styles = StyleSheet.create({
     
     
         
+      },
+      um:{
+        backgroundColor: 'green'
       }
   });
 
