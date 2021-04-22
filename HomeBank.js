@@ -25,27 +25,39 @@ export default function HomeBank() {
 
       <View style={styles.lastBox}>
         <Text style={styles.threeBoxes}>
+        Health
           <Image
-            source={require("./assets/health.png")}
-            style={styles.containerPicture}
+            source={require("./assets/health1.png")}
+            
           />
-          Health
+          
         </Text>
 
         <Text style={styles.threeBoxes}>
+        Beauty
           <Image
-            source={require("./assets/beauty.png")}
-            style={styles.containerPicture}
+            source={require("./assets/beauty1.png")}
+            
           />
-          Beauty
+          
         </Text>
 
         <Text style={styles.threeBoxes}>
+        Travel
           <Image
-            source={require("./assets/travel.png")}
-            style={styles.containerPicture}
+            source={require("./assets/travel1.png")}
+          
           />
-          Travel
+          
+        </Text>
+        
+        <Text style={styles.threeBoxes}>
+        Clothes
+          <Image
+            source={require("./assets/clothes1.png")}
+          
+          />
+          
         </Text>
       </View>
     </View>
@@ -61,7 +73,7 @@ const styles = StyleSheet.create({
   },
   boxIncome: {
     backgroundColor: "#ffffff", //box background
-    width: 200, //how much will occupy the horizontal screen 
+    width: 150, //how much will occupy the horizontal screen 
     alignItems: "center", //alignment of items 
     justifyContent: "space-around", //how to align children
     borderRadius: 6, //rounded edges 
@@ -71,7 +83,7 @@ const styles = StyleSheet.create({
   },
   boxExpenses: {
     backgroundColor: "#ffffff",
-    width: 100, 
+    width: 150, 
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 6,
@@ -81,19 +93,24 @@ const styles = StyleSheet.create({
   },
   boxButton: {
     backgroundColor: "#e6e6fa", 
-    width: 400, 
+    width: 335, 
     borderRadius: 10, 
     flexDirection: "row",  //set boxes in rows, not columns 
     padding: 3,
+    marginRight: 2,
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginVertical: 5,
   },
   lastBox: {
     backgroundColor: "#e6e6fa", 
-    width: 200, 
+    width: 330, 
     borderRadius: 20, 
     flexDirection: "row", 
     padding: 13,
+    alignItems: 'center',
   },
-  threeBoxes: {
+  threeBoxes: { //purple box
     backgroundColor: "#ffffff",
     width: 70, 
     alignItems: "center",
@@ -102,20 +119,23 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft: 5,
     textAlign: "center",
-    paddingTop: 70,
+    paddingTop: 30,
     paddingVertical: 50,
     borderColor: "#fff",
     fontWeight: "bold",
   },
   containerPicture: {
+    backgroundColor: "#ffffff",
     flex: 1,
-    width: 200,
+    width: 350,
     resizeMode: "contain",
     flexGrow: 1,
     alignItems: "center",
     justifyContent: "center",
     paddingBottom: 30,
+    marginVertical: 5,
   },
+
   balance: {
     textAlign: "center",
   },
