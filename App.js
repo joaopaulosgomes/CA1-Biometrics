@@ -17,7 +17,6 @@ const navigator = createStackNavigator( // create a new constant to initialize t
       headerStyle: {
         backgroundColor: '#19181f'
       },
-      //header: null
       headerTintColor: "#7159c1",
     }
   }

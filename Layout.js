@@ -6,8 +6,7 @@ import {
   Text,
   TextInput,
   Image,
-  Alert,
-  Platform
+  Alert
 } from "react-native";
 import * as LocalAuthentication from "expo-local-authentication";
 
@@ -52,7 +51,6 @@ export default function App({ navigation }) {
           "No Biometrics Found!",
           "Please ensure you have set up biometrics in your OS settings"
         );
-  
       }
 
     if (hasPassword){
@@ -86,13 +84,13 @@ export default function App({ navigation }) {
       </Text>
       <TextInput
         style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="#444"
+        placeholder="E-mail"
+        placeholderTextColor="#7159c1"
       />
       <TextInput
         style={styles.input}
-        placeholder="Senha"
-        placeholderTextColor="#444"
+        placeholder="Password"
+        placeholderTextColor="#7159c1"
       />
       <TouchableOpacity style={styles.button}
         //On press, the function "authenticate()" is handled
