@@ -34,29 +34,41 @@ export default function App({ navigation }) {
 
   //This function set a modal in the display
   showIncompatibleAlert = () => {
-    Alert.alert("Error! Current device does not have the necessary hardware to use this API."
+    Alert.alert(
+      "Error!",
+      "Current device does not have the necessary hardware to use this API."
     );
   };
 
   //This function autheticates the device
   async function authenticate() {
-
-    //Checks if there is a password/PIN enrolled in the OS of the device installed
-    const hasPassword = await LocalAuthentication.isEnrolledAsync();
-
-    //in case of not having a password, return to the beginning 
-    if (!hasPassword) return;
-
-    //authenticateAsync() checks if the authentication in the device has succeeded
-    const { success } = await LocalAuthentication.authenticateAsync();
-
-    // if authentication went through, redirect user to page Two (HomeBank)
-    if (success) { 
-      navigation.navigate('Two');
     
-    //Otherwise, stay at the same page and try again
-    } else { 
-      Alert.alert("Authentication failed. Please, insert your password!");
+      //Checks if there is a password/PIN enrolled in the OS of the device installed
+      let hasPassword = await LocalAuthentication.isEnrolledAsync();
+
+      if (!hasPassword) {
+      //in case of not having a password, return to the beginning
+        Alert.alert(
+          "No Biometrics Found!",
+          "Please ensure you have set up biometrics in your OS settings"
+        );
+  
+      }
+
+    if (hasPassword){
+      //authenticateAsync() checks if the authentication in the device has succeeded
+      const { success } = await LocalAuthentication.authenticateAsync();
+
+      // if authentication went through, redirect user to page Two (HomeBank)
+      if (success) { 
+        navigation.navigate('Two');
+      
+      //Otherwise, stay at the same page and try again
+      } else { 
+        Alert.alert(
+          "Authentication failed",
+          "Please, use your password for authentication!");
+      }
     }
   }
 
